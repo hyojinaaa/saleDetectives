@@ -100,6 +100,43 @@ main > h2 {
 	margin-left: 50px;
 }
 
+/******************* Review ******************/
+#review {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+#review-btn {
+	border: 1px solid #15472e;
+	background-color: white;
+	color: #15472e;
+}
+
+#review-btn:hover {
+	background-color: #15472e;
+	color: white;
+}
+
+.review-img {
+	text-align: center;
+}
+
+.review-img:hover {
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+.review-p h4:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.review-p > p:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+
 /********************************************************
 Footer
 **********************************************************/
