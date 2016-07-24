@@ -1,6 +1,10 @@
 /********************************************************
 Header
 **********************************************************/
+body {
+	font-family: 'Raleway', sans-serif;
+}
+
 .container-fluid {
 	width: 1200px;
 }
@@ -12,16 +16,116 @@ Header
 
 #logo {
 	width: 80px;
+	margin-right: 20px;
+}
+
+.navbar-default {
+	margin-bottom: 0;
 }
 
 /********************************************************
 Hero Section
 **********************************************************/
+.jumbotron {
+	text-align: center;
+	background-color: #268354;
+	font-family: 'Nunito', sans-serif;
+}
+
+.jumbotron img {
+	width: 20%;
+}
+
+.jumbotron h2 {
+	color: white;
+}
+
+.jumbotron p a {
+	font-family: 'Raleway', sans-serif;
+}
 
 /********************************************************
 Main Section
 **********************************************************/
 
+/******************* Home ******************/
+.home-sale {
+	background-color: #638aab;
+	text-align: center;
+	margin-right: 30px;
+	border-radius: 40px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.home-sale:hover {
+	background-color: #447cab;
+	cursor: pointer;
+}
+
+.home-sale h2 {
+	color: white;
+	font-family: 'Nunito', sans-serif;
+}
+
+main > h2 {
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+.container {
+	width: auto;
+	padding-right: 0;
+	padding-left: 0;
+	margin-right: 100px;
+	margin-left: 100px;
+	border: 1px solid #333;
+	border-radius: 30px;
+}
+
+.home-review {
+	text-align: center;
+	margin-top: 20px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.home-review:hover {
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+.home-review p {
+	margin-right: 50px;
+	margin-left: 50px;
+}
+
 /********************************************************
 Footer
 **********************************************************/
+footer {
+	text-align: center;
+	margin-bottom: 30px;
+	margin-top: 30px;
+}
+
+footer p {
+	margin-top: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
