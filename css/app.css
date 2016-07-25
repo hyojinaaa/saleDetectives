@@ -118,6 +118,10 @@ Main Section
 	margin-left: 50px;
 }
 
+#detectives img {
+	width: 100%;
+}
+
 /******************* Review ******************/
 #review {
 	width: 1200px;
