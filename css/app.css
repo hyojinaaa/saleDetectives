@@ -30,6 +30,7 @@ Hero Section
 	text-align: center;
 	background-color: #268354;
 	font-family: 'Nunito', sans-serif;
+	margin-bottom: 0;
 }
 
 .jumbotron img {
@@ -49,6 +50,13 @@ Main Section
 **********************************************************/
 
 /******************* Home ******************/
+#sale-info {
+	background-color: red;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	background-image: url(../img/concrete.png);
+}
+
 .home-sale {
 	background-color: #638aab;
 	text-align: center;
@@ -68,11 +76,20 @@ Main Section
 	font-family: 'Nunito', sans-serif;
 }
 
-main > h2 {
+#top-reviews-heading {
 	text-align: center;
-	margin-top: 40px;
-	margin-bottom: 20px;
+	margin-top: 0;
+	margin-bottom: 40px;
+	color: white;
+	font-family: 'Nunito', sans-serif;
 }
+
+#top-reviews {
+	background-color: #268354;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
 .container {
 	width: auto;
 	padding-right: 0;
@@ -81,6 +98,7 @@ main > h2 {
 	margin-left: 100px;
 	border: 1px solid #333;
 	border-radius: 30px;
+	background-color: white;
 }
 
 .home-review {
@@ -134,6 +152,15 @@ main > h2 {
 .review-p > p:hover {
 	text-decoration: underline;
 	cursor: pointer;
+}
+
+.pagination-nav {
+	text-align: right;
+}
+
+/******************* Review Individual******************/
+article {
+	text-align: center;
 }
 
 
