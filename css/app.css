@@ -128,14 +128,14 @@ Main Section
 	margin: 0 auto;
 }
 
-#review-btn {
+.review-btn {
 	margin-top: 30px;
 	border: 1px solid #15472e;
 	background-color: white;
 	color: #15472e;
 }
 
-#review-btn:hover {
+.review-btn:hover {
 	background-color: #15472e;
 	color: white;
 }
@@ -208,6 +208,12 @@ Main Section
 	margin-top: 40px;
 }
 
+/******************* Sale Calendar ******************/
+#sale-calendar {
+	width: 1200px;
+	margin: 0 auto;
+}
+
 
 /********************************************************
 Footer
@@ -221,18 +227,6 @@ footer {
 footer p {
 	margin-top: 30px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
