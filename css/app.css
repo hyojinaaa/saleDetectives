@@ -90,7 +90,7 @@ Main Section
 	padding-bottom: 40px;
 }
 
-.container {
+#container {
 	width: auto;
 	padding-right: 0;
 	padding-left: 0;
@@ -214,6 +214,30 @@ Main Section
 	margin: 0 auto;
 }
 
+/******************* My Account **********************/
+#myaccount {
+	width: 1000px;
+	margin: 0 auto;
+	margin-top: 30px;
+	text-align: center;
+}
+
+#active-log div {
+	border: 1px solid #333;
+	margin-right: 20px;
+	margin-top: 20px;
+	padding: 30px;
+}
+
+#active-log div:hover {
+	background-color: #268354;
+	color: white;
+	cursor: pointer;
+}
+
+#active-log h4 {
+	font-family: 'Nunito', sans-serif; 
+}
 
 /********************************************************
 Footer
