@@ -201,6 +201,15 @@ Main Section
 	background-color: transparent;
 }
 
+.group1 {
+	margin-left: 25px;
+	margin-bottom: 20px;
+}
+
+#give-ranking {
+	margin-left: 10px;
+}
+
 /******************* Review Post***********************/
 #review-post {
 	width: 800px;
