@@ -166,7 +166,6 @@ Main Section
 /******************* Review Individual******************/
 #review-individual {
 	text-align: center;
-	margin-top: 30px;
 	padding: 60px;
 	background-color: #efefef;
 }
@@ -188,12 +187,12 @@ Main Section
 }
 
 #post-comment {
-	margin-left: 900px;
+	margin-left: 850px;
 	margin-top: 10px;
 }
 
 #comments-text {
-	width: 1050px;
+	width: 1000px;
 }
 
 #edit-delete {
@@ -212,25 +211,41 @@ Main Section
 
 /******************* Review Post***********************/
 #review-post {
-	width: 800px;
+	width: 950px;
 	margin: 0 auto;
-	margin-top: 40px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 /******************* Sale Calendar ******************/
-#sale-calendar {
-	width: 1200px;
-	margin: 0 auto;
+.sale-calendar {
+	background-image: url(../img/detectives-black.jpg);
+	padding-bottom: 20px;
+	padding-top: 20px;
 }
 
-/******************* My Account **********************/
-#myaccount {
-	width: 1000px;
-	margin: 0 auto;
-	margin-top: 30px;
+.review {
+	background-image: url(../img/clothes.jpg);
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+
+.account {
+	background-image: url(../img/account.jpg);
+	padding-bottom: 90px;
+	padding-top: 90px;
 	text-align: center;
 }
 
+.main {
+	width: 1200px;
+	margin: 0 auto;
+	background-color: white;
+	padding: 30px;
+}
+
+
+/******************* My Account **********************/
 #active-log div {
 	border: 1px solid #333;
 	margin-right: 20px;
@@ -254,7 +269,10 @@ Footer
 footer {
 	text-align: center;
 	margin-bottom: 30px;
-	margin-top: 30px;
+}
+
+footer hr {
+	margin-top: 0;
 }
 
 footer p {
