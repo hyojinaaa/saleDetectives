@@ -217,7 +217,7 @@ Main Section
 	margin-bottom: 10px;
 }
 
-/******************* Sale Calendar ******************/
+/******************* Main Background ******************/
 .sale-calendar {
 	background-image: url(../img/detectives-black.jpg);
 	padding-bottom: 20px;
@@ -244,6 +244,9 @@ Main Section
 	padding: 30px;
 }
 
+#error img {
+	width: 100%;
+}
 
 /******************* My Account **********************/
 #active-log div {
