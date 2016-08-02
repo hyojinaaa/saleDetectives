@@ -12,7 +12,7 @@
   <div class="jumbotron">
     <img src="img/fight.png">
     <h2>Be Planned,<br>And Do a Wise Purchase,<br>With Us!</h2>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">Go to Sale Calendar</a></p>
+    <p><a class="btn btn-primary btn-lg" href="index.php?page=sale-calendar" role="button">Go to Sale Calendar</a></p>
   </div>
 
   <div id="detectives">

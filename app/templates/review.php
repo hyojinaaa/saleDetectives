@@ -15,7 +15,7 @@
 <!-- Main section -->
 <main class="review">
   <section class="main">
-  <button class="btn review-btn">Write a Review</button> 
+  <a class="btn review-btn" href="index.php?page=review-post">Write a Review</a> 
 
   <hr>
   <div class="row">

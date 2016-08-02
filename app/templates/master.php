@@ -37,15 +37,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><img src="img/logo.png" id="logo"></a>
+      <a class="navbar-brand" href="index.php?page=landing"><img src="img/logo.png" id="logo"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Sale Calendar</a></li>
-        <li><a href="#">Review</a></li>
+        <li><a href="index.php?page=landing">Home</a></li>
+        <li><a href="index.php?page=sale-calendar">Sale Calendar</a></li>
+        <li><a href="index.php?page=review">Review</a></li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">

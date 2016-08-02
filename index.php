@@ -5,6 +5,48 @@ require 'vendor/autoload.php';
 // require 'app/controllers/PageController.php';
 
 // Instantiate (create instance of) Plates library
-		$plates = new League\Plates\Engine('app/templates');
+$plates = new League\Plates\Engine('app/templates');
 
-		echo $plates->render('myAccount');
+// Load approrpirate page
+$page = isset($_GET['page']) ? $_GET['page'] : 'landing';
+
+// Load the appropriate file based on page
+switch($page) {
+
+	case 'landing':
+		echo $plates->render('landing');
+	break;
+
+	case 'sale-calendar':
+		echo $plates->render('sale-calendar');
+	break;
+
+	case 'sale-calendar-individual':
+		echo $plates->render('sale-calendar-individual');
+	break;
+
+	case 'sale-calendar-post':
+		echo $plates->render('sale-calendar-post');
+	break;
+
+	case 'review':
+		echo $plates->render('review');
+	break;
+
+	case 'review-individual':
+		echo $plates->render('review-individual');
+	break;
+
+	case 'review-post':
+		echo $plates->render('review-post');
+	break;
+
+	case 'my-account':
+		echo $plates->render('my-account');
+	break;
+
+	default:
+		echo $plates->render('error404');
+	break;
+
+}

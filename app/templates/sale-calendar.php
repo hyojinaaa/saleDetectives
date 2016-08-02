@@ -17,7 +17,7 @@
 <main class="sale-calendar">
   <section class="main">
 
-    <button class="btn review-btn">Add upcoming sale</button> 
+    <a class="btn review-btn" href="index.php?page=sale-calendar-post">Add upcoming sale</a>
     <div class="row">
       
       <div class="col-lg-7">
