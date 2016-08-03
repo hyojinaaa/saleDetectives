@@ -69,24 +69,25 @@
             </div>
             <div class="modal-body">
   
-              <form>
+              <form action="index.php?page=login" method="post">
                 <div class="form-group">
                   <label for="email">Email Address</label>
-                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="example@example.com">
+                  <input type="email" class="form-control" name="eamil" id="email" aria-describedby="emailHelp" placeholder="example@example.com">
                 </div>
                 <div class="form-group">
                   <label for="password">Password</label>
-                  <input type="password" class="form-control" id="password" placeholder="Password">
+                  <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                 </div>
                 <div class="form-group">
                   <label for="username">User Name</label>
-                  <input type="email" class="form-control" id="username">
+                  <input type="email" class="form-control" name="username" id="username">
                   <small class="text-muted">User Name only has alphabets and numbers</small>
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Sign up</button>
+              <button type="button" name="new-account" class="btn btn-primary">Sign up</button>
             </div>
+            </form>
           </div>
         </div>
       </div>
@@ -117,6 +118,7 @@
               <button type="button" class="btn btn-default" data-dismiss="modal">Forget my password</button>
               <button type="button" class="btn btn-primary">Log in</button>
             </div>
+            </form>
           </div>
         </div>
       </div>

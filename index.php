@@ -2,10 +2,10 @@
 
 // Make everything in the vendor folder available to use 
 require 'vendor/autoload.php';
-// require 'app/controllers/PageController.php';
+require 'app/controllers/PageController.php';
 
 // Instantiate (create instance of) Plates library
-$plates = new League\Plates\Engine('app/templates');
+// $plates = new League\Plates\Engine('app/templates');
 
 // Load approrpirate page
 $page = isset($_GET['page']) ? $_GET['page'] : 'landing';
@@ -14,7 +14,8 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'landing';
 switch($page) {
 
 	case 'landing':
-		echo $plates->render('landing');
+		require 'app/controllers/LandingController.php';
+		$controller = new LandingController();
 	break;
 
 	case 'sale-calendar':
@@ -45,8 +46,15 @@ switch($page) {
 		echo $plates->render('my-account');
 	break;
 
+	case 'login':
+		require 'app/controllers/LoginController.php';
+		$controller = new LoginController();
+	break;
+
 	default:
 		echo $plates->render('error404');
 	break;
 
 }
+
+$controller->buildHTML();
