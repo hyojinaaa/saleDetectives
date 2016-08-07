@@ -15,8 +15,6 @@ class LandingController extends PageController {
 
 	public function buildHTML() {
 
-		$plates = new League\Plates\Engine('app/templates');
-
-		echo $plates->render('landing');
+		echo $this->plates->render('landing');
 	}
 }

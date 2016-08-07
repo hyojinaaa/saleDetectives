@@ -10,7 +10,9 @@ class LoginController extends PageController {
 		parent::__construct();
 
 		// If the user has submitted the registration form
-		print_r( $_POST );
+		// if( isset($_POST['new-account']) ) {
+
+		// }
 
 		
 	}
@@ -20,6 +22,6 @@ class LoginController extends PageController {
 
 	public function buildHTML() {
 
-		echo $plates->render('landing');
+		echo $this->plates->render('landing');
 	}
 }

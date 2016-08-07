@@ -69,23 +69,30 @@
             </div>
             <div class="modal-body">
   
-              <form action="index.php?page=login" method="post">
+              <form action="index.php?page=login" method="post" id="register">
                 <div class="form-group">
                   <label for="email">Email Address</label>
                   <input type="email" class="form-control" name="eamil" id="email" aria-describedby="emailHelp" placeholder="example@example.com">
+                  <small class="text-muted" id="emailMessage"></small>
                 </div>
                 <div class="form-group">
                   <label for="password">Password</label>
                   <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                  <small class="text-muted" id="passwordMessage"></small>
+                </div>
+                <div class="form-group">
+                  <label for="confirm-password">Confirm Password</label>
+                  <input type="password" class="form-control" name="confirm-password" id="confirm-password" placeholder="Type your password again">
+                  <small class="text-muted" id="confirmPasswordMessage"></small>
                 </div>
                 <div class="form-group">
                   <label for="username">User Name</label>
-                  <input type="email" class="form-control" name="username" id="username">
-                  <small class="text-muted">User Name only has alphabets and numbers</small>
+                  <input type="text" class="form-control" name="username" id="username">
+                  <small class="text-muted" id="usernameMessage">User Name only has alphabets and numbers</small>
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="button" name="new-account" class="btn btn-primary">Sign up</button>
+              <small class="text-muted" id="formMessage"></small><button type="submit" name="new-account" id="new-account" class="btn btn-primary">Sign up</button>
             </div>
             </form>
           </div>
@@ -148,10 +155,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/validation.js"></script>
     <script type="text/javascript" src="js/jquery-rating.js"></script>
     <script src="src/clndr.js"></script>
     <script src="js/reviewIndividual.js"></script>
     <script src="js/salecalendar.js"></script>
+    
   </body>
 </html>
 

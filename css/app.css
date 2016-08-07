@@ -122,6 +122,18 @@ Main Section
 	width: 100%;
 }
 
+.success {
+	color: #228b22;
+}
+
+.error {
+	color: red;
+}
+
+#new-account {
+	margin-left: 10px;
+}
+
 /******************* Review ******************/
 #review {
 	width: 1200px;
