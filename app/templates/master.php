@@ -57,6 +57,18 @@
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
         </li>
+
+        <?php if(isset($_SESSION['id'])): ?>
+
+        <li><a href="index.php?page=my-account">My Account</a></li>
+
+        <li><a href="#">Log out</a></li>
+
+        <?php elseif(!isset($_SESSION['id'])): ?>
+
+
+        
+
         <li><a href="#" data-toggle="modal" data-target="#signup">Sign up</a></li>
 
         <!-- Modal -->
@@ -68,11 +80,13 @@
               <h4 class="modal-title" id="myModalLabel"></h4>
             </div>
             <div class="modal-body">
-  
+
+
+
               <form action="index.php?page=login" method="post" id="register">
                 <div class="form-group">
                   <label for="email">Email Address</label>
-                  <input type="email" class="form-control" name="eamil" id="email" aria-describedby="emailHelp" placeholder="example@example.com">
+                  <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="example@example.com">
                   <small class="text-muted" id="emailMessage"></small>
                 </div>
                 <div class="form-group">
@@ -92,9 +106,16 @@
                 </div>
             </div>
             <div class="modal-footer">
-              <small class="text-muted" id="formMessage"></small><button type="submit" name="new-account" id="new-account" class="btn btn-primary">Sign up</button>
+              <small class="text-muted" id="formMessage"></small>
+              <input type="hidden" name="new-account-button">
+              <input type="submit" id="new-account" class="btn btn-primary" value="Sign Up">
+              <!-- <input id="new-account" type="submit" name="new-account" value="Sign Up"> -->
             </div>
             </form>
+
+
+
+
           </div>
         </div>
       </div>
@@ -129,6 +150,7 @@
           </div>
         </div>
       </div>
+      <?php endif; ?>
       </ul>
 
       

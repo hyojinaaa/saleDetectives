@@ -1,21 +1,22 @@
 <?php 
+session_start();
 
 // Make everything in the vendor folder available to use 
 require 'vendor/autoload.php';
 require 'app/controllers/PageController.php';
 
-// Instantiate (create instance of) Plates library
-// $plates = new League\Plates\Engine('app/templates');
-
 // Load approrpirate page
 $page = isset($_GET['page']) ? $_GET['page'] : 'landing';
+
+// Connect to the database
+$dbc = new mysqli('localhost', 'root', '', 'saleDetectives');
 
 // Load the appropriate file based on page
 switch($page) {
 
 	case 'landing':
 		require 'app/controllers/LandingController.php';
-		$controller = new LandingController();
+		$controller = new LandingController($dbc);
 	break;
 
 	case 'sale-calendar':
@@ -48,7 +49,7 @@ switch($page) {
 
 	case 'login':
 		require 'app/controllers/LoginController.php';
-		$controller = new LoginController();
+		$controller = new LoginController($dbc);
 	break;
 
 	default:

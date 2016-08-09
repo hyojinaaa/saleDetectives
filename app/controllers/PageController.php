@@ -3,6 +3,7 @@
 abstract class PageController {
 
 	protected $plates;
+	protected $dbc;
 
 	public function __construct() {
 
