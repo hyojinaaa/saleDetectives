@@ -11,13 +11,9 @@ class LoginController extends PageController {
 		// Save this database connection for later
 		$this->dbc = $dbc;
 
-		// If the user has submitted the registration form
-		if( isset($_POST['new-account-button']) ) {
-			$this->processNewAccount();
-		}
-
+		// If the login form has been submitted
 		if(isset($_POST['login-button']) ){
-
+			$this->processLogIn();
 		}
 	}
 
@@ -26,46 +22,33 @@ class LoginController extends PageController {
 
 	public function buildHTML() {
 
+		echo $this->plates->render('login', $this->data);
 	}
 
-	private function processNewAccount() {
+	
+
+	private function processLogIn() {
 
 		$totalErrors = 0;
 
-		// Make sure the E-Mail is not in use
-		$filteredEmail = $this->dbc->real_escape_string( $_POST['email'] );
+		// Make sure the email address has been provided
+		if( strlen($_POST['email']) < 6 ) {
 
-		// $sql = "SELECT email
-		// 		FROM user
-		// 		WHERE email = '$filteredEmail'  ";
+			// Prepare error message
+			$this->data['emailMessage'] = "This is an invalid E-mail address";
+			$totalErrors++;
 
-		// 		// Run the query 
-		// 		$result = $this->dbc->query($sql);
+		}
 
-		// // If the query failed OR there is a result
-		// if( !$result || $result->num_rows > 0 ) {
-		// 	// $this->emailMessage = 'E-Mail in use';
-		// 	$totalErrors++;
-		// }
+		// Make sure password is at least 8 characters
+		if( strlen($_POST['password']) < 8 ) {
 
-		// if( $totalErrors == 0 ) {		
-
-			// Hash the password 
-			$hash = password_hash( $_POST['password'], PASSWORD_BCRYPT );
-
-			$username = $this->dbc->real_escape_string( $_POST['username'] );
-
-			// Prepare the SQL
-			$sql = "INSERT INTO user (email, password, username)
-					VALUES ('$filteredEmail', '$hash', '$username') ";
-			
-			// Run the query
-			$this->dbc->query($sql);
-
-			// Redirect the user to their landing page
-			header('Location: index.php?page=landing');
-
-		// }
-
+			$this->data['passwordMessage'] = 'This is an invalid password';
+			$totalErrors++;
+		}
 	}
 }
+
+
+
+

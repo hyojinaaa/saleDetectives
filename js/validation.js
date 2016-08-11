@@ -121,7 +121,7 @@ $(document).ready(function() {
 		 	$('#register input').each(function() {
 				if( $(this).val().length === 0 ) {
 					$(this).parent().children('small').empty();
-					$(this).parent().children('small').removeClass("success").addClass("error").append("<p>This is required</p>");
+					$(this).parent().children('small').removeClass("success").addClass("error").append("<p>You have some errors</p>");
 				}
 			});
 		}

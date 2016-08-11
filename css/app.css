@@ -256,6 +256,19 @@ Main Section
 	padding: 30px;
 }
 
+.signup-bg {
+	background-image: url(../img/account.jpg);
+	padding-bottom: 50px;
+	padding-top: 50px;
+}
+
+.signup {
+	width: 400px;
+	margin: 0 auto;
+	background-color: white;
+	padding: 30px;
+}
+
 #error img {
 	width: 100%;
 }

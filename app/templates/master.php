@@ -61,96 +61,14 @@
         <?php if(isset($_SESSION['id'])): ?>
 
         <li><a href="index.php?page=my-account">My Account</a></li>
-
         <li><a href="#">Log out</a></li>
 
         <?php elseif(!isset($_SESSION['id'])): ?>
 
-
+        <li><a href="index.php?page=signup">Sign up</a></li>
+        <li><a href="index.php?page=login">Log in</a></li>
         
-
-        <li><a href="#" data-toggle="modal" data-target="#signup">Sign up</a></li>
-
-        <!-- Modal -->
-        <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel"></h4>
-            </div>
-            <div class="modal-body">
-
-
-
-              <form action="index.php?page=login" method="post" id="register">
-                <div class="form-group">
-                  <label for="email">Email Address</label>
-                  <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="example@example.com">
-                  <small class="text-muted" id="emailMessage"></small>
-                </div>
-                <div class="form-group">
-                  <label for="password">Password</label>
-                  <input type="password" class="form-control" name="password" id="password" placeholder="Password">
-                  <small class="text-muted" id="passwordMessage"></small>
-                </div>
-                <div class="form-group">
-                  <label for="confirm-password">Confirm Password</label>
-                  <input type="password" class="form-control" name="confirm-password" id="confirm-password" placeholder="Type your password again">
-                  <small class="text-muted" id="confirmPasswordMessage"></small>
-                </div>
-                <div class="form-group">
-                  <label for="username">User Name</label>
-                  <input type="text" class="form-control" name="username" id="username">
-                  <small class="text-muted" id="usernameMessage">User Name only has alphabets and numbers</small>
-                </div>
-            </div>
-            <div class="modal-footer">
-              <small class="text-muted" id="formMessage"></small>
-              <input type="hidden" name="new-account-button">
-              <input type="submit" id="new-account" class="btn btn-primary" value="Sign Up">
-              <!-- <input id="new-account" type="submit" name="new-account" value="Sign Up"> -->
-            </div>
-            </form>
-
-
-
-
-          </div>
-        </div>
-      </div>
-        <li><a href="#" data-toggle="modal" data-target="#login">Log in</a></li>
-
-        <!-- Modal -->
-        <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel"></h4>
-            </div>
-            <div class="modal-body">
-  
-              <form>
-                <div class="form-group">
-                  <label for="email">Email Address</label>
-                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="example@example.com">
-                </div>
-                <div class="form-group">
-                  <label for="password">Password</label>
-                  <input type="password" class="form-control" id="password" placeholder="Password">
-                </div>
-      
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Forget my password</button>
-              <button type="button" class="btn btn-primary">Log in</button>
-            </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <?php endif; ?>
+        <?php endif; ?>
       </ul>
 
       
