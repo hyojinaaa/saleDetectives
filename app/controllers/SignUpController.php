@@ -50,7 +50,7 @@ class SignUpController extends PageController {
 
 		// If the query failed OR there is a result
 		if( !$result || $result->num_rows > 0 ) {
-			$this->emailMessage = 'E-Mail in use';
+			$this->emailMessage = 'This E-Mail is already in use';
 			$totalErrors++;
 		}
 
@@ -72,7 +72,7 @@ class SignUpController extends PageController {
 			$_SESSION['id'] = $this->dbc->insert_id;
 
 			// Redirect the user to their landing page
-			header('Location: index.php?page=landing');
+			header('Location: index.php?page=signup-success');
 
 		}
 

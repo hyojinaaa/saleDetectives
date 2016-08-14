@@ -57,6 +57,16 @@ switch($page) {
 		$controller = new SignUpController($dbc);
 	break;
 
+	case 'signup-success':
+		require 'app/controllers/SignUpSuccessController.php';
+		$controller = new SignUpSuccessController($dbc);
+	break;
+
+	case 'logout':
+		require 'app/controllers/LogoutController.php';
+		$controller = new LogoutController($dbc);
+	break;
+
 	default:
 		echo $plates->render('error404');
 	break;

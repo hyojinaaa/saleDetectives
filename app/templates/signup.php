@@ -18,7 +18,7 @@
   	<form action="index.php?page=signup" method="post" id="register">
                 <div class="form-group">
                   <label for="email">Email Address</label>
-                  <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="example@example.com">
+                  <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="example@example.com" value="<?= isset($_POST['email']) ? $_POST['email'] : '' ?>">
                   
 					<?php  if( isset($emailMessage) ) : ?>
 
@@ -28,17 +28,17 @@
                 </div>
                 <div class="form-group">
                   <label for="password">Password</label>
-                  <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                  <input type="password" class="form-control" name="password" id="password" placeholder="Password" value="<?= isset($_POST['password']) ? $_POST['password'] : '' ?>">
                   <small class="text-muted" id="passwordMessage"></small>
                 </div>
                 <div class="form-group">
                   <label for="confirm-password">Confirm Password</label>
-                  <input type="password" class="form-control" name="confirm-password" id="confirm-password" placeholder="Type your password again">
+                  <input type="password" class="form-control" name="confirm-password" id="confirm-password" placeholder="Type your password again" value="<?= isset($_POST['confirm-password']) ? $_POST['confirm-password'] : '' ?>">
                   <small class="text-muted" id="confirmPasswordMessage"></small>
                 </div>
                 <div class="form-group">
                   <label for="username">User Name</label>
-                  <input type="text" class="form-control" name="username" id="username">
+                  <input type="text" class="form-control" name="username" id="username" value="<?= isset($_POST['username']) ? $_POST['username'] : '' ?>">
                   <small class="text-muted" id="usernameMessage">User Name only has alphabets and numbers</small>
                 </div>
             </div>

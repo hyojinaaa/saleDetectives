@@ -29,22 +29,42 @@ class LoginController extends PageController {
 
 	private function processLogIn() {
 
-		$totalErrors = 0;
+		// Check the database for the E-Mail address
+		// Get the hashed password too
+		$filteredEmail = $this->dbc->real_escape_string( $_POST['email'] );
 
-		// Make sure the email address has been provided
-		if( strlen($_POST['email']) < 6 ) {
+		$sql = "SELECT id, password
+				FROM user
+				WHERE email= '$filteredEmail'   ";
 
-			// Prepare error message
-			$this->data['emailMessage'] = "This is an invalid E-mail address";
-			$totalErrors++;
+		// Run the query
+		$result = $this->dbc->query( $sql );
 
-		}
+		// Is there a result?
+		if( $result->num_rows == 1 ) {
+			
+			$userData = $result->fetch_assoc();
 
-		// Make sure password is at least 8 characters
-		if( strlen($_POST['password']) < 8 ) {
+			// Check the password
+			$passwordResult = password_verify( $_POST['password'], $userData['password'] );
 
-			$this->data['passwordMessage'] = 'This is an invalid password';
-			$totalErrors++;
+			// If the result was good 
+			if( $passwordResult == true ) {
+				// Log the user in
+				$_SESSION['id'] = $userData['id'];
+
+				header('Location: index.php?page=landing');
+			} else {
+
+				// Prepare error message
+				$this->data['loginMessage'] = 'E-mail or Password incorrect';
+			}
+
+		} else {
+
+			// Credentials do not match our records
+			$this->data['loginMessage'] = 'E-mail or Password incorrect';
+
 		}
 	}
 }

@@ -61,7 +61,7 @@
         <?php if(isset($_SESSION['id'])): ?>
 
         <li><a href="index.php?page=my-account">My Account</a></li>
-        <li><a href="#">Log out</a></li>
+        <li><a href="index.php?page=logout">Log out</a></li>
 
         <?php elseif(!isset($_SESSION['id'])): ?>
 
