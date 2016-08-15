@@ -20,31 +20,38 @@ switch($page) {
 	break;
 
 	case 'sale-calendar':
-		echo $plates->render('sale-calendar');
+		require 'app/controllers/SaleCalendarController.php';
+		$controller = new SaleCalendarController($dbc);
 	break;
 
 	case 'sale-calendar-individual':
-		echo $plates->render('sale-calendar-individual');
+		require 'app/controllers/SaleIndividualController.php';
+		$controller = new SaleIndividualController($dbc);
 	break;
 
 	case 'sale-calendar-post':
-		echo $plates->render('sale-calendar-post');
+		require 'app/controllers/SalePostController.php';
+		$controller = new SalePostController($dbc);
 	break;
 
 	case 'review':
-		echo $plates->render('review');
+		require 'app/controllers/ReviewController.php';
+		$controller = new ReviewController($dbc);
 	break;
 
 	case 'review-individual':
-		echo $plates->render('review-individual');
+		require 'app/controllers/ReviewIndividualController.php';
+		$controller = new ReviewIndividualController($dbc);
 	break;
 
 	case 'review-post':
-		echo $plates->render('review-post');
+		require 'app/controllers/ReviewPostController.php';
+		$controller = new ReviewPostController($dbc);
 	break;
 
 	case 'my-account':
-		echo $plates->render('my-account');
+		require 'app/controllers/MyAccountController.php';
+		$controller = new MyAccountController($dbc);
 	break;
 
 	case 'login':
@@ -68,7 +75,8 @@ switch($page) {
 	break;
 
 	default:
-		echo $plates->render('error404');
+		require 'app/controllers/Error404Controller.php';
+		$controller = new Error404Controller();
 	break;
 
 }

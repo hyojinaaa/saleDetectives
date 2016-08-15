@@ -9,7 +9,7 @@
 
 <!-- Hero section -->
   <div class="jumbotron">
-    <h2>Upload your review and we are so looking forward to share it!</h2>
+    <h2>Upload your review, we are so looking forward to share it!</h2>
   </div>
 
 <!-- Main section -->
