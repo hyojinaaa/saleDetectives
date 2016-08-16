@@ -116,14 +116,6 @@ $(document).ready(function() {
 		event.preventDefault();
 		if(ValidEmail === true && ValidPassword === true && ValidConfirmPassword === true && ValidUsername === true) {
 			$('#register').submit();
-		} else {
-		 	$('#formMessage').empty().append('<p>You have some errors</p>');
-		 	$('#register input').each(function() {
-				if( $(this).val().length === 0 ) {
-					$(this).parent().children('small').empty();
-					$(this).parent().children('small').removeClass("success").addClass("error").append("<p>You have some errors</p>");
-				}
-			});
 		}
 	});
 

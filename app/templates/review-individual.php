@@ -31,23 +31,13 @@
     <img src="http://placehold.it/400x400">
     <img src="http://placehold.it/400x400">
     <div class="contents">
-          <h2>Topshop non sleeve blouse</h2>
+          <h2><?= $review['title'] ?></h2>
        
-          <p>Auckland, New Zealand</p>
+          <p><?= $review['location'] ?></p>
     
-          <p><a href="">Author Name</a>  |  <small>Written 07/06/2016</small></p>
+          <p><a href=""><?= $review['user_id'] ?></a>  |  <small>Written <?= $review['created_at'] ?></small></p>
     
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p><?= $review['description'] ?></p>
    
 
    

@@ -11,6 +11,8 @@ class SalePostController extends PageController {
 
 		// Save this database connection for later
 		$this->dbc = $dbc;
+
+		$this->mustBeLoggedIn();
 	}
 
 	// Methods (functions)

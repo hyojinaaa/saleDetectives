@@ -183,6 +183,17 @@ Main Section
 	text-align: right;
 }
 
+.review-error {
+	color: red;
+}
+
+.review-stream {
+	color: #333;
+}
+
+#review-heading a {
+	color: #333;
+}
 /******************* Review Individual******************/
 #review-individual {
 	text-align: center;
