@@ -31,7 +31,8 @@ class ReviewController extends PageController {
 
 		// Prepare some SQL
 		$sql = "SELECT *
-				FROM review";
+				FROM review
+				ORDER BY created_at DESC";
 
 		// Run the SQL and capture the result
 		$result = $this->dbc->query($sql);
