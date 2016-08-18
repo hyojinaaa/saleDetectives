@@ -12,7 +12,14 @@ class ReviewIndividualController extends PageController {
 		// Save this database connection for later
 		$this->dbc = $dbc;
 
+		// Did the user add a comment?
+		if( isset($_POST['new-comment']) ) {
+			$this->processNewComment();
+		}
+
 		$this->getReviewData();
+
+
 	}
 
 	// Methods (functions)
@@ -29,9 +36,11 @@ class ReviewIndividualController extends PageController {
 		$reviewID = $this->dbc->real_escape_string( $_GET['reviewid'] );
 
 		// Get info about this post
-		$sql = "SELECT title, review_about, location, description, image, created_at, user_id
+		$sql = "SELECT title, review_about, location, description, image, created_at, user_id, username
 				FROM review
-				WHERE id = $reviewID";
+				JOIN user
+				ON user_id = user.id
+				WHERE review.id = $reviewID";
 
 		// Run the SQL
 		$result = $this->dbc->query($sql);
@@ -44,6 +53,45 @@ class ReviewIndividualController extends PageController {
 			// Yay! 
 			$this->data['review'] = $result->fetch_assoc();
 		}
+
+	}
+
+	private function processNewComment() {
+
+		// Validate the comment
+		$totalErrors = 0;
+
+		$comment = trim($_POST['comment']);
+
+		if( strlen($comment) == 0 ) {
+
+			$this->data['commentMessage'] = 'Comment is required';
+			$totalErrors++;
+
+		} elseif( strlen($comment) > 1000 ) {
+
+			$this->data['commentMessage'] = 'Comment cannot be more than 1000 characters';
+			$totalErrors++;
+
+		}
+
+		// if( $totalErrors == 0 ) {
+
+		// 	$filteredComment = $this->dbc->real_escape_string( $_POST['comment'] );
+		// 	$userID = $_SESSION['id'];
+		// 	$reviewID = $this->dbc->real_escape_string( $_GET['reviewid'] );
+
+		// 	// prepare SQL
+		// 	$sql = "INSERT INTO comment (comment, user_id, review_id)
+		// 			VALUES ('$filteredComment', $userID, $reviewID) ";
+
+		// 			die($sql);
+
+		// 	// Run the SQL
+		// 	$this->dbc->query($sql);
+
+		// }
+
 
 	}
 
