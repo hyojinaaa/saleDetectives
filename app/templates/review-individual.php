@@ -75,16 +75,20 @@
           <img class="media-object" src="http://placehold.it/100x100" alt="...">
         </a>
       </div>
-      <div class="media-body">
-        <form action="index.php?page=review&reviewid=<?= $_GET['reviewid'] ?>" method="post">
-          <textarea class="form-control" name="comment" id="comments-text" rows="3" placeholder="Write your comment"></textarea>
-          <small class="text-muted"><?= isset($commentMessage) ? $commentMessage : '' ?></small>
-          <input type="submit" class="btn btn-primary" name="new-comment" id="post-comment" value="Post my comment"></button>
-        </form>
-      </div>
 
+      <div class="media-body">
+        <form action="index.php?page=review-individual&reviewid=<?= $_GET['reviewid'] ?>" method="post">
+          <textarea class="form-control" name="comment" id="comments-text" rows="3" placeholder="Write your comment"></textarea>
+          <small class="text-muted review-error"><?= isset($commentMessage) ? $commentMessage : '' ?></small>
+          <input type="submit" class="btn btn-primary" name="new-comment" id="post-comment" value="Post my comment">
+        </form>
+          
+
+      </div>
+        
     </li>
 
+  <?php foreach($allComments as $comment): ?> 
     <li class="media">
      
       <div class="media-left">
@@ -102,15 +106,12 @@
           <li><a href="#">Delete</a></li>
         </ul>
       </div>
-        <p>Hyojin Jung  |  <small>Commented 07/06/2016</small></p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</p>
+        <p><?= $comment['username'] ?>  |  <small>Commented <?= $comment['created_at'] ?></small></p>
+        <p><?= $comment['comment'] ?></p>
       </div>
       
     </li>
-
+  <?php endforeach ?>
     
 
     

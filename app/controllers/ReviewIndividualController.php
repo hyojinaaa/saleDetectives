@@ -14,6 +14,7 @@ class ReviewIndividualController extends PageController {
 
 		// Did the user add a comment?
 		if( isset($_POST['new-comment']) ) {
+		
 			$this->processNewComment();
 		}
 
@@ -54,6 +55,19 @@ class ReviewIndividualController extends PageController {
 			$this->data['review'] = $result->fetch_assoc();
 		}
 
+		// Get all the comments!
+		$sql = "SELECT comment, created_at, username
+				FROM comment
+				JOIN user
+				ON comment.user_id = user.id
+				WHERE review_id = $reviewID
+				ORDER BY created_at DESC ";
+
+		$result = $this->dbc->query($sql);
+
+		// Extract the data as an associate array
+		$this->data['allComments'] = $result->fetch_all(MYSQLI_ASSOC); 
+
 	}
 
 	private function processNewComment() {
@@ -75,22 +89,20 @@ class ReviewIndividualController extends PageController {
 
 		}
 
-		// if( $totalErrors == 0 ) {
+		if( $totalErrors == 0 ) {
 
-		// 	$filteredComment = $this->dbc->real_escape_string( $_POST['comment'] );
-		// 	$userID = $_SESSION['id'];
-		// 	$reviewID = $this->dbc->real_escape_string( $_GET['reviewid'] );
+			$filteredComment = $this->dbc->real_escape_string( $_POST['comment'] );
+			$userID = $_SESSION['id'];
+			$reviewID = $this->dbc->real_escape_string( $_GET['reviewid'] );
 
-		// 	// prepare SQL
-		// 	$sql = "INSERT INTO comment (comment, user_id, review_id)
-		// 			VALUES ('$filteredComment', $userID, $reviewID) ";
+			// prepare SQL
+			$sql = "INSERT INTO comment (comment, user_id, review_id)
+					VALUES ('$filteredComment', $userID, $reviewID) ";
 
-		// 			die($sql);
+			// Run the SQL
+			$this->dbc->query($sql);
 
-		// 	// Run the SQL
-		// 	$this->dbc->query($sql);
-
-		// }
+		}
 
 
 	}
