@@ -28,16 +28,16 @@
       </ul>
     </div>
 
-    <img src="http://placehold.it/400x400">
-    <img src="http://placehold.it/400x400">
+    <img src="img/uploads/review/individual/<?= $review['image'] ?>">
+    <img src="img/uploads/review/individual/<?= $review['image'] ?>">
     <div class="contents">
-          <h2><?= $review['title'] ?></h2>
+          <h2><?= $this->e($review['title']) ?></h2>
        
-          <p><?= $review['location'] ?></p>
+          <p><?= $this->e($review['location']) ?></p>
     
-          <p><a href=""><?= $review['username'] ?></a>  |  <small>Written <?= $review['created_at'] ?></small></p>
+          <p><a href=""><?= $this->e($review['username']) ?></a>  |  <small>Written <?= $review['created_at'] ?></small></p>
     
-    <p><?= $review['description'] ?></p>
+    <p><?= $this->e($review['description']) ?></p>
    
 
    
@@ -97,6 +97,15 @@
         </a>
       </div>
       <div class="media-body">
+
+      <?php 
+
+        // Is the visitor logged in?
+        if( isset($_SESSION['id']) ) {
+
+        // Does this user own the comment?
+        if( $_SESSION['id'] == $comment['user_id'] ) {   ?>
+      
         <div class="dropdown pull-right">
         <button class="btn btn-default dropdown-toggle" type="button" id="edit-delete" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
           <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
@@ -106,8 +115,12 @@
           <li><a href="#">Delete</a></li>
         </ul>
       </div>
-        <p><?= $comment['username'] ?>  |  <small>Commented <?= $comment['created_at'] ?></small></p>
-        <p><?= $comment['comment'] ?></p>
+
+      <?php }
+              } ?>
+
+        <p><?= $this->e($comment['username']) ?>  |  <small>Commented <?= $comment['created_at'] ?></small></p>
+        <p><?= $this->e($comment['comment']) ?></p>
       </div>
       
     </li>

@@ -24,8 +24,8 @@
       <div class="col-lg-5 review-img">
 
         <a href="index.php?page=review-individual&reviewid=<?= $item['id'] ?>">
-          <img src="http://placehold.it/210x210">
-          <img src="http://placehold.it/210x210">
+          <img src="img/uploads/review/stream/<?= $item['image'] ?>">
+          <img src="img/uploads/review/stream/<?= $item['image'] ?>">
         </a>
       </div>
       <div class="col-lg-7 review-p">
