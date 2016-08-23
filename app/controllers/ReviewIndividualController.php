@@ -56,7 +56,7 @@ class ReviewIndividualController extends PageController {
 		}
 
 		// Get all the comments!
-		$sql = "SELECT comment, created_at, username, user_id
+		$sql = "SELECT comment.id, comment, created_at, username, user_id
 				FROM comment
 				JOIN user
 				ON comment.user_id = user.id

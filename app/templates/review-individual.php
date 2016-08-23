@@ -111,7 +111,7 @@
           <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-          <li><a href="#">Edit</a></li>
+          <li><a href="index.php?page=edit-comment&id=<?= $comment['id'] ?>">Edit</a></li>
           <li><a href="#">Delete</a></li>
         </ul>
       </div>
