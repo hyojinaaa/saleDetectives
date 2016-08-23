@@ -16,7 +16,7 @@
 <main class="review">
   <section class="main">
   <div id="review-post">
-  <form action="index.php?page=review-post" method="post" enctype="multipart/form-data">
+  <form action="index.php?page=review-post" method="post" enctype="multipart/form-data"> 
   <fieldset class="form-group">
     <label for="title">Title</label>
     <input type="title" class="form-control" id="title" name="title">

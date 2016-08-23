@@ -24,8 +24,11 @@
       <div class="col-lg-5 review-img">
 
         <a href="index.php?page=review-individual&reviewid=<?= $item['id'] ?>">
-          <img src="img/uploads/review/stream/<?= $item['image'] ?>">
-          <img src="img/uploads/review/stream/<?= $item['image'] ?>">
+
+        <?php foreach($allImages as $image): ?>
+          <img src="img/uploads/review/stream/<?= $image['image'] ?>">
+          <img src="img/uploads/review/stream/<?= $image['image'] ?>">
+        <?php endforeach ?>
         </a>
       </div>
       <div class="col-lg-7 review-p">
@@ -35,7 +38,7 @@
             <p><?= $item['created_at'] ?></p>
           </div>
           <div class="col-lg-6">
-            <a href="#"><p><?= $item['user_id'] ?></p></a>
+            <a href="#"><p><?= $item['username'] ?></p></a>
           </div>
           <a href="index.php?page=review-individual&reviewid=<?= $item['id'] ?>"><p class="review-stream"><?= $item['description'] ?></p></a>
       </div>

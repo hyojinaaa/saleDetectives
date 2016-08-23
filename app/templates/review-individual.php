@@ -28,8 +28,10 @@
       </ul>
     </div>
 
-    <img src="img/uploads/review/individual/<?= $review['image'] ?>">
-    <img src="img/uploads/review/individual/<?= $review['image'] ?>">
+  <?php foreach($allImages as $image): ?>
+    <img src="img/uploads/review/individual/<?= $image['image'] ?>">
+  <?php endforeach ?>
+  
     <div class="contents">
           <h2><?= $this->e($review['title']) ?></h2>
        
