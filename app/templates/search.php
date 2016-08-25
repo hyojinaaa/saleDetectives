@@ -20,8 +20,8 @@
     <hr>
 
   <?php if(strlen($searchTerm) > 0): ?>
-    <?php if(strlen($searchResult) > 0): ?>
-      <?php foreach($searchResult as $Result): ?>
+    <?php if(strlen($searchResults) > 0): ?>
+      <?php foreach($searchResults as $Result): ?>
   <div class="row">
       <div class="col-lg-5 review-img">
 
@@ -35,14 +35,14 @@
       </div>
       <div class="col-lg-7 review-p">
           <br>
-          <h4 id="review-heading"><a href="index.php?page=review-individual&reviewid=<?= $item['id'] ?>"><?= $Result['search_title'] ?></h4>
+          <h4 id="review-heading"><a href="index.php?page=review-individual&reviewid=<?= $Result['id'] ?>"><?= $Result['search_title'] ?></h4>
           <div class="col-lg-6">
             <p><?= $Result['created_at'] ?></p>
           </div>
           <div class="col-lg-6">
             <a href="#"><p><?= $Result['username'] ?></p></a>
           </div>
-          <a href="index.php?page=review-individual&reviewid=<?= $item['id'] ?>"><p class="review-stream"><?= $Result['search_description'] ?></p></a>
+          <a href="index.php?page=review-individual&reviewid=<?= $Result['id'] ?>"><p class="review-stream"><?= $Result['search_description'] ?></p></a>
       </div>
   </div>
 <?php endforeach; ?>
