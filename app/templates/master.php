@@ -50,11 +50,11 @@
       
       <ul class="nav navbar-nav navbar-right">
         <li>
-        <form class="navbar-form navbar-right" role="search">
+        <form action="index.php?page=search" class="navbar-form navbar-right" role="search" method="post">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
+            <input type="search" class="form-control" name="search" placeholder="Search">
           </div>
-          <button type="submit" class="btn btn-default">Submit</button>
+          <input type="submit" class="btn btn-default" name="search-submit">
         </form>
         </li>
 

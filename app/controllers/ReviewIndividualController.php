@@ -37,7 +37,7 @@ class ReviewIndividualController extends PageController {
 		$reviewID = $this->dbc->real_escape_string( $_GET['reviewid'] );
 
 		// Get info about this post
-		$sql = "SELECT title, review_about, location, description, created_at, user_id, username
+		$sql = "SELECT title, review_about, location, description, created_at, user_id, username, image1, image2
 				FROM review
 				JOIN user
 				ON user_id = user.id
@@ -55,14 +55,7 @@ class ReviewIndividualController extends PageController {
 			$this->data['review'] = $result->fetch_assoc();
 		}
 
-		// Get info about image
-		$sql = "SELECT id, image, review_id
-				FROM image
-				WHERE review_id = $reviewID";
-
-		$result = $this->dbc->query($sql);
-
-		$this->data['allImages'] = $result->fetch_all(MYSQLI_ASSOC);
+		
 
 		// Get all the comments!
 		$sql = "SELECT comment.id, comment, created_at, username, user_id

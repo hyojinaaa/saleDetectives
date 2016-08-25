@@ -23,10 +23,6 @@ class ReviewController extends PageController {
 
 		$this->data['allReviews'] = $allReviews;
 
-		$allImages = $this->getImages();
-
-		$this->data['allImages'] = $allImages;
-
 		echo $this->plates->render('review', $this->data);
 
 	}
@@ -34,14 +30,12 @@ class ReviewController extends PageController {
 	private function getLatestReviews() {
 
 		// Prepare some SQL
-		$sql = "SELECT review.id, title, review_about, location, description, created_at, user_id, username
+
+		$sql = "SELECT review.id, title, review_about, location, description, created_at, user_id, username, image1, image2
 				FROM review
 				JOIN user
-				ON user_id = user.id
+				ON user.id = user_id
 				ORDER BY created_at DESC";
-
-
-
 
 		// Run the SQL and capture the result
 		$result = $this->dbc->query($sql);
@@ -52,20 +46,6 @@ class ReviewController extends PageController {
 		// Return the results to the code that called this function
 		return $allReviews;
 
-	}
-
-	private function getImages() {
-
-		$sql = "SELECT image.id, image, review_id
-				FROM image
-				JOIN review
-				ON review_id = review.id";
-
-		$result = $this->dbc->query($sql);
-
-		$allImages = $result->fetch_all(MYSQLI_ASSOC);
-
-		return $allImages;
 	}
 
 	

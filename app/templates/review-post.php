@@ -49,8 +49,9 @@
     <small class="text-muted review-error"><?= isset($textMessage) ? $textMessage : '' ?></small>
   </fieldset>
   <fieldset class="form-group">
-    <label for="image">Upload Image</label>
-    <input type="file" class="form-control-file" id="image" name="image[]" multiple>
+    <label for="image">Upload Image (at most 2)</label>
+    <input type="file" class="form-control-file" id="image" name="image1">
+    <input type="file" class="form-control-file" id="image" name="image2">
     <small class="text-muted review-error"><?= isset($imageMessage) ? $imageMessage : '' ?></small>
   </fieldset>
   

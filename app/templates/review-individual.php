@@ -44,9 +44,10 @@
       <?php }
               } ?>
 
-  <?php foreach($allImages as $image): ?>
-    <img src="img/uploads/review/individual/<?= $image['image'] ?>">
-  <?php endforeach ?>
+  
+    <img src="img/uploads/review/individual/<?= $review['image1'] ?>">
+    <img src="img/uploads/review/individual/<?= $review['image2'] ?>">
+  
   
     <div class="contents">
           <h2><?= $this->e($review['title']) ?></h2>

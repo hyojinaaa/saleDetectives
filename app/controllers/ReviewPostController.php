@@ -81,26 +81,74 @@ class ReviewPostController extends PageController {
 
 		}
 
-		foreach ($_FILES['image']['error'] as $singleImageError) {
-
-			// Make sure the user has provided an image
-			if( in_array( $singleImageError, [1,3,4] ) ) {
+		// Make sure the user has provied an image
+		if( in_array( $_FILES['image1']['error'], [1,3,4] ) ) {
 				// Show error message
-				$this->data['imageMessage'] = 'This image is failed to upload';
+				$this->data['imageMessage'] = 'Image failed to upload';
 				$totalErrors++;
-
+			} elseif( !in_array( $_FILES['image1']['type'], $this->acceptableImageTypes ) ) {
+				$this->data['imageMessage'] = 'Must be an image (jpg, gif, png, tif etc)';
+				$totalErrors++;
 			}
-			// } elseif( !in_array( $_FILES['image']['type'], $this->acceptableImageTypes ) ) {
-			// 	$this->data['imageMessage'] = 'Image file must be an image (jpg, gif, png, tif etc)';
-			// 	$totalErrors++;
-			// }
 
-		}
+		// Make sure the user has provied an image
+		if( in_array( $_FILES['image2']['error'], [1,3,4] ) ) {
+				// Show error message
+				$this->data['imageMessage'] = 'Image failed to upload';
+				$totalErrors++;
+			} elseif( !in_array( $_FILES['image2']['type'], $this->acceptableImageTypes ) ) {
+				$this->data['imageMessage'] = 'Must be an image (jpg, gif, png, tif etc)';
+				$totalErrors++;
+			}
+
 
 		
 
 		// If there are no errors
 		if( $totalErrors == 0 ) {
+
+			// Instance of Intervention Image
+			$manager = new ImageManager();
+
+			// Get the file that was just uploaded
+			$image1 = $manager->make( $_FILES['image1']['tmp_name'] );
+
+			// Get file extension
+			$fileExtension1 = $this->getFileExtension( $image1->mime() );
+
+			// Make file name
+			$fileName1 = uniqid();
+
+			$image1->save("img/uploads/review/original/$fileName1$fileExtension1");
+
+			$image1->resize(400, 400);
+
+			$image1->save("img/uploads/review/individual/$fileName1$fileExtension1");
+
+			$image1->resize(210, 210);
+
+			$image1->save("img/uploads/review/stream/$fileName1$fileExtension1");
+
+			
+
+			$image2 = $manager->make( $_FILES['image2']['tmp_name'] ); 
+
+			// Get file extension
+			$fileExtension2 = $this->getFileExtension( $image2->mime() );
+
+			// Make file name
+			$fileName2 = uniqid();
+
+			$image2->save("img/uploads/review/original/$fileName2$fileExtension2");
+
+			$image2->resize(400, 400);
+
+			$image2->save("img/uploads/review/individual/$fileName2$fileExtension2");
+
+			$image2->resize(210, 210);
+
+			$image2->save("img/uploads/review/stream/$fileName2$fileExtension2");
+
 
 			// Filter the data
 			$filteredTitle = $this->dbc->real_escape_string($title);
@@ -112,47 +160,10 @@ class ReviewPostController extends PageController {
 			$userID = $_SESSION['id'];
 
 			// SQL (INSERT)
-			$sql = "INSERT INTO review (title, review_about, location, description, user_id)
-					VALUES ('$filteredTitle', '$reviewAbout', '$filteredLoc', '$filteredDesc', $userID) ";
+			$sql = "INSERT INTO review (title, review_about, location, description, user_id, image1, image2)
+					VALUES ('$filteredTitle', '$reviewAbout', '$filteredLoc', '$filteredDesc', $userID, '$fileName1$fileExtension1', '$fileName2$fileExtension2') ";
 
 			$this->dbc->query($sql);
-
-			$reviewID = $this->dbc->insert_id;
-
-			// Instance of Intervention Image
-			$manager = new ImageManager();
-
-
-			foreach ($_FILES['image']['tmp_name'] as $singleImage) {
-
-				// Get the file that was just uploaded
-				$image = $manager->make( $singleImage ); 
-
-				// Get file extension
-				$fileExtension = $this->getFileExtension( $image->mime() );
-
-				// Make file name
-				$fileName = uniqid();
-
-				$image->save("img/uploads/review/original/$fileName$fileExtension");
-
-				$image->resize(400, 400);
-
-				$image->save("img/uploads/review/individual/$fileName$fileExtension");
-
-				$image->resize(210, 210);
-
-				$image->save("img/uploads/review/stream/$fileName$fileExtension");
-
-				// Insert data
-				$sql = "INSERT INTO image(image, review_id)
-						VALUES ('$fileName$fileExtension', $reviewID) ";
-
-				$this->dbc->query($sql);
-
-			}
-
-
 			header('Location: index.php?page=review');
 
 

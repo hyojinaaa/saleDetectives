@@ -64,6 +64,11 @@ switch($page) {
 		$controller = new EditReviewController($dbc);
 	break;
 
+	case 'search':
+		require 'app/controllers/SearchController.php';
+		$controller = new SearchController($dbc);
+	break;
+
 	case 'login':
 		require 'app/controllers/LoginController.php';
 		$controller = new LoginController($dbc);

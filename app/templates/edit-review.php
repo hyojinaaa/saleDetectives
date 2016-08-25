@@ -48,11 +48,14 @@
   </fieldset>
   <fieldset class="form-group">
     <label for="image">Upload Image</label>
-    <input type="file" class="form-control-file" id="image" name="image[]" multiple>
+    <input type="file" class="form-control-file" id="image" name="image1">
+    <input type="file" class="form-control-file" id="image" name="image2">
+    <small class="text-muted review-error"><?= isset($imageError) ? $imageError : '' ?></small>
 <br>
- <?php foreach($reviewImages as $image): ?>
-    <img src="img/uploads/review/individual/<?= $image['image'] ?>">
-  <?php endforeach ?>
+ 
+    <img src="img/uploads/review/individual/<?= $review['image1'] ?>">
+    <img src="img/uploads/review/individual/<?= $review['image2'] ?>">
+  
   <br>
     <small class="text-muted review-error"><?= isset($imageError) ? $imageError : '' ?></small>
   </fieldset>
