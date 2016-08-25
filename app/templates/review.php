@@ -25,10 +25,11 @@
 
         <a href="index.php?page=review-individual&reviewid=<?= $item['id'] ?>">
 
-        <?php foreach($allImages as $image): ?>
+        <?php 
+            if(is_array($allImages) || is_object($allImages)) {
+        foreach($allImages as $image): ?>
           <img src="img/uploads/review/stream/<?= $image['image'] ?>">
-          <img src="img/uploads/review/stream/<?= $image['image'] ?>">
-        <?php endforeach ?>
+        <?php endforeach; } ?>
         </a>
       </div>
       <div class="col-lg-7 review-p">

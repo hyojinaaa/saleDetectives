@@ -16,17 +16,33 @@
 <main class="review">
   <section class="main">
   <article id="review-individual">
+
+  <?php 
+
+        // Is the visitor logged in?
+        if( isset($_SESSION['id']) ) {
+
+        // Does this user own the comment?
+        if( $_SESSION['id'] == $review['user_id'] ) {   ?>
     <div class="dropdown pull-right">
       <button class="btn btn-default dropdown-toggle" type="button" id="edit-delete" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
       </button>
       <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-        <li><a href="#">Edit</a></li>
+
+      
+
+        <li><a href="index.php?page=edit-review&id=<?= $_GET['reviewid'] ?>">Edit</a></li>
         <li><a href="#">Delete</a></li>
         <li role="separator" class="divider"></li>
         <li><a href="#">Share on Facebook</a></li>
       </ul>
+
+    
     </div>
+
+      <?php }
+              } ?>
 
   <?php foreach($allImages as $image): ?>
     <img src="img/uploads/review/individual/<?= $image['image'] ?>">

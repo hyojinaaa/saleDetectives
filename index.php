@@ -59,6 +59,11 @@ switch($page) {
 		$controller = new EditCommentController($dbc);
 	break;
 
+	case 'edit-review':
+		require 'app/controllers/EditReviewController.php';
+		$controller = new EditReviewController($dbc);
+	break;
+
 	case 'login':
 		require 'app/controllers/LoginController.php';
 		$controller = new LoginController($dbc);
