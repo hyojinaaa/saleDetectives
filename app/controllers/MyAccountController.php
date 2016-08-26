@@ -13,6 +13,8 @@ class MyAccountController extends PageController {
 		$this->dbc = $dbc;
 
 		$this->mustBeLoggedIn();
+
+		$this->getAccountData();
 	}
 
 	// Methods (functions)
@@ -20,9 +22,29 @@ class MyAccountController extends PageController {
 
 	public function buildHTML() {
 
-		echo $this->plates->render('my-account');
+		echo $this->plates->render('my-account', $this->data);
 
 		
+	}
+
+	private function getAccountData() {
+
+		$userID = $_SESSION['id'];
+
+		$sql = "SELECT id, email, username, profile_photo, star_point
+				FROM user 
+				WHERE id = $userID";
+
+		$result = $this->dbc->query($sql);
+
+		// If query failed
+		if( !$result || $result->num_rows == 0 ) {
+			// Redirect user to 404 page
+			header('Location: index.php?page=error404');
+		} else {
+			// Yay! 
+			$this->data['userData'] = $result->fetch_assoc();
+		}
 	}
 
 	

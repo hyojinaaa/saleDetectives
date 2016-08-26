@@ -18,10 +18,14 @@
   <?php if($_SESSION['privilege'] == 'admin'): ?>
     <h3 class="admin">Administer</h3>
   <?php endif; ?>
-  <img src="http://placehold.it/200x200">
-  <a href=""><h2>User Name</h2></a>
+  <img src="<?= $userData['profile_photo'] ?>">
+  <a href=""><h2><?= $userData['username'] ?></h2></a>
+  <h3>Email Address : <?= $userData['email'] ?></h3>
 
-  <h3>My ranking point: 160pt</h3>
+  <h3>My ranking point: <?= $userData['star_point'] ?> pt</h3>
+  <form action="index.php?page=edit-account&id=<?= $userData['id'] ?>" method="post">
+    <input type="submit" class="btn review-btn" value="Update your info" name="edit-account">
+  </form>
   <hr>
   <h3>Active Log</h3>
     <div class="row" id="active-log">

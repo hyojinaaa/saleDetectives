@@ -32,6 +32,7 @@
       <option value="shoes">Shoes</option>
       <option value="acc">Accessories</option>
       <option value="others">Others</option>
+    
     </select>
   </fieldset>
 

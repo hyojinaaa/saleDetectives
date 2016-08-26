@@ -84,6 +84,11 @@ switch($page) {
 		$controller = new SignUpSuccessController($dbc);
 	break;
 
+	case 'edit-account':
+		require 'app/controllers/EditAccountController.php';
+		$controller = new EditAccountController($dbc);
+	break;
+
 	case 'logout':
 		require 'app/controllers/LogoutController.php';
 		$controller = new LogoutController($dbc);
