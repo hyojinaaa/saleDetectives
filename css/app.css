@@ -240,6 +240,37 @@ Main Section
 	margin-left: 10px;
 }
 
+#edit-toggle li, #comment-toggle li {
+	text-align: center;
+	
+}
+
+#edit-toggle li:hover {
+	background-color: #ededed;
+}
+
+
+#comment-toggle li:hover {
+	background-color: #ededed;
+}
+
+
+.delete {
+	background-color: white;
+	border: none;
+}
+
+.delete:hover {
+	background-color: #ededed;
+}
+
+.delete a {
+	color: black;
+}
+
+.delete a:hover {
+	text-decoration: none;
+}
 /******************* Review Post***********************/
 #review-post {
 	width: 950px;
@@ -314,6 +345,15 @@ Main Section
 	color: #268354;
 	font-family: 'Nunito', sans-serif; 
 }
+
+.admin {
+	background: #268354;
+	color: white;
+	padding: 10px;
+	width: 200px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
 /********************************************************
 Footer
 **********************************************************/
@@ -329,6 +369,7 @@ footer hr {
 footer p {
 	margin-top: 30px;
 }
+
 
 
 

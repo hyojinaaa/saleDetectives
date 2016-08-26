@@ -22,8 +22,7 @@ class MyAccountController extends PageController {
 
 		echo $this->plates->render('my-account');
 
-		// // Prepare a container for data
-		// $data = [];
+		
 	}
 
 	

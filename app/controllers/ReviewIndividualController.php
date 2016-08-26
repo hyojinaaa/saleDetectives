@@ -12,6 +12,17 @@ class ReviewIndividualController extends PageController {
 		// Save this database connection for later
 		$this->dbc = $dbc;
 
+		// Does user want to delete this post?
+		if( isset($_GET['delete-comment']) ) {
+			$this->deleteComment();
+		}
+
+
+		// Does user want to delete this post?
+		if( isset($_GET['delete']) ) {
+			$this->deleteReview();
+		}
+
 		// Did the user add a comment?
 		if( isset($_POST['new-comment']) ) {
 		
@@ -109,5 +120,113 @@ class ReviewIndividualController extends PageController {
 
 	}
 
+	private function deleteReview() {
+
+		// If user is not logged in 
+		if( !isset($_SESSION['id']) ) {
+			return;
+		}
+
+		// Make sure the user owns this post
+		$reviewID = $this->dbc->real_escape_string($_GET['reviewid']);
+		$userID = $_SESSION['id'];
+		$privilege = $_SESSION['privilege'];
+
+		// Delete the image first
+		$sql = "SELECT image1
+				FROM review
+				WHERE id = $reviewID";
+
+				// If the user is not an admin
+				if( $privilege != 'admin' ) {
+				$sql .= " AND user_id = $userID";
+				}
+
+		// Run the query
+		$result = $this->dbc->query($sql);
+
+		// If the query failed, either post doesn't exist, or you don't own the post
+		if( !$result || $result->num_rows == 0 ) {
+			return;
+		}
+
+		$result = $result->fetch_assoc();
+
+		$fileName1 = $result['image1'];
+
+		// Delete the image first
+		$sql = "SELECT image2
+				FROM review
+				WHERE id = $reviewID";
+
+				// If the user is not an admin
+				if( $privilege != 'admin' ) {
+				$sql .= " AND user_id = $userID";
+				}
+
+		// Run the query
+		$result = $this->dbc->query($sql);
+
+		// If the query failed, either post doesn't exist, or you don't own the post
+		if( !$result || $result->num_rows == 0 ) {
+			return;
+		}
+
+		$result = $result->fetch_assoc();
+
+		$fileName2 = $result['image2'];
+
+		unlink("image/unloads/review/original/$filename1");
+		unlink("image/unloads/review/original/$filename2");
+		unlink("image/unloads/review/stream/$filename1");
+		unlink("image/unloads/review/stream/$filename2");
+		unlink("image/unloads/review/individual/$filename1");
+		unlink("image/unloads/review/individual/$filename2");
+		
+
+		// Prepare the SQL
+		$sql = "DELETE FROM review
+				WHERE id = $reviewID";
+
+		// Run the query
+		$this->dbc->query($sql);
+
+		header('Location: index.php?page=review');
+		die();
+	}
+
+	private function deleteComment() {
+
+		// If user is not logged in 
+		if( !isset($_SESSION['id']) ) {
+			return;
+		}
+
+		// Make sure the user owns this post
+		$reviewID = $this->dbc->real_escape_string($_GET['reviewid']);
+		$userID = $_SESSION['id'];
+		$privilege = $_SESSION['privilege'];
+
+		// Delete the image first
+
+		// Prepare the SQL
+		$sql = "DELETE FROM comment
+				WHERE review_id = $reviewID";
+
+
+		// If the user is not an admin, they must own the post
+		if( $privilege != 'admin' ) {
+			$sql .= " AND user_id = $userID";
+		}
+
+		// Run the query
+		$this->dbc->query($sql);
+
+	}
+
 	
 }
+
+
+
+

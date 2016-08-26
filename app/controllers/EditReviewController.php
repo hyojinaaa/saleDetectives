@@ -47,8 +47,11 @@ class EditReviewController extends PageController {
 		// Prepare the query
 		$sql = "SELECT title, review_about, location, description, image1, image2
 				FROM review
-				WHERE id = $reviewID
-				AND user_id = $userID";
+				WHERE id = $reviewID ";
+
+				if( $_SESSION['privilege'] != 'admin' ) {
+				$sql .= " AND user_id = $userID";
+			}
 
 		// Run the query
 		$result = $this->dbc->query($sql);
@@ -249,6 +252,12 @@ class EditReviewController extends PageController {
 						image1 = '$imageName1',
 						image2 = '$imageName2'
 					WHERE id = $reviewID ";
+
+					// If the user is not and admin
+ 		if( $_SESSION['privilege'] != 'admin' ) {
+ 			// Additional check
+ 			$sql .= " AND user_id = $userID";
+ 		}
 
 			$this->dbc->query($sql);
 
