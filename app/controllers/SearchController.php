@@ -38,13 +38,15 @@ class SearchController extends PageController {
 
 		$this->data['searchTerm'] = $searchTerm;
 
-		$sql = "SELECT id, title AS search_title, description AS search_description, username AS search_username
+		$sql = "SELECT review.id, user_id, location, image1, image2, created_at, title AS score_title, description AS score_description, username AS score_username
 				FROM review
+				JOIN user
+				ON user.id = user_id
 				WHERE 
 					title LIKE '%$searchTerm%' OR
 					description LIKE '%$searchTerm%' OR
 					username LIKE '%$searchTerm%'
-				ORDER BY search_title ASC";
+				ORDER BY score_title ASC";
 
 		$result = $this->dbc->query($sql);
 
