@@ -38,7 +38,7 @@
             <small class="text-muted review-error"><?= isset($imageError) ? $imageError : '' ?></small>
           <br>
  
-    <img src="img/uploads/review/individual/<?= $myAccount['image'] ?>">
+    <img src="img/uploads/account/view/<?= $myAccount['image'] ?>">
    
   <br>
     <small class="text-muted review-error"><?= isset($imageError) ? $imageError : '' ?></small>

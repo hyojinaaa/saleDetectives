@@ -96,7 +96,7 @@ switch($page) {
 
 	default:
 		require 'app/controllers/Error404Controller.php';
-		$controller = new Error404Controller();
+		$controller = new Error404Controller($dbc);
 	break;
 
 }

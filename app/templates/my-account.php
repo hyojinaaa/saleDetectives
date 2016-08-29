@@ -18,7 +18,7 @@
   <?php if($_SESSION['privilege'] == 'admin'): ?>
     <h3 class="admin">Administer</h3>
   <?php endif; ?>
-  <img src="<?= $userData['profile_photo'] ?>">
+  <img src="img/uploads/account/view/<?= $userData['image'] ?>">
   <a href=""><h2><?= $userData['username'] ?></h2></a>
   <h3>Email Address : <?= $userData['email'] ?></h3>
 

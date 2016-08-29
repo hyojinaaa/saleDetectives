@@ -31,7 +31,7 @@ class MyAccountController extends PageController {
 
 		$userID = $_SESSION['id'];
 
-		$sql = "SELECT id, email, username, profile_photo, star_point
+		$sql = "SELECT id, email, username, image, star_point
 				FROM user 
 				WHERE id = $userID";
 

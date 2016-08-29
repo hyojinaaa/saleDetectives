@@ -70,7 +70,7 @@ class EditAccountController extends PageController {
 		$username = trim($_POST['username']);
 
 
-		//Make sure the user has provided an image
+		// Make sure the user has provied an image
 		if( $_FILES['image']['name'] != '' ) {
 			
 			if( in_array( $_FILES['image']['error'], [1,3] ) ) {
@@ -101,7 +101,6 @@ class EditAccountController extends PageController {
 
 			// Get the image name
 			$imageName = $result['image'];
-
 			
 
 			// If the user uploaded an image
@@ -129,9 +128,9 @@ class EditAccountController extends PageController {
 
 				$image->save("img/uploads/account/comment/$fileName$fileExtension");
 
-				unlink("img/uploads/review/original/$imageName");
-				unlink("img/uploads/review/stream/$imageName");
-				unlink("img/uploads/review/individual/$imageName");
+				unlink("img/uploads/account/original/$imageName");
+				unlink("img/uploads/account/view/$imageName");
+				unlink("img/uploads/account/comment/$imageName");
 
 				$imageName = $fileName.$fileExtension;
 
@@ -146,7 +145,7 @@ class EditAccountController extends PageController {
 					SET username = '$filteredUsername',
 						image = '$imageName'
 					WHERE id = $userID ";
-
+					
 				
 
 			$this->dbc->query($sql);

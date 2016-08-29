@@ -112,7 +112,7 @@
      
       <div class="media-left">
         <a href="#">
-          <img class="media-object" src="http://placehold.it/100x100" alt="...">
+          <img class="media-object" src="img/uploads/account/comment/<?= $comment['image'] ?>" alt="...">
         </a>
       </div>
       <div class="media-body">
