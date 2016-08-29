@@ -41,6 +41,11 @@
                   <input type="text" class="form-control" name="username" id="username" value="<?= isset($_POST['username']) ? $_POST['username'] : '' ?>">
                   <small class="text-muted" id="usernameMessage">User Name only has alphabets and numbers</small>
                 </div>
+
+                <div class="form-group">
+                  <div class="g-recaptcha" data-sitekey="6Lcp0igTAAAAAJpBED-zcdUeiyMXNgJ9b1vihniA"></div>
+                </div>
+                
             </div>
             <div class="modal-footer">
               <small class="text-muted" id="formMessage"></small>

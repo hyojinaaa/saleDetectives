@@ -90,8 +90,9 @@ switch($page) {
 	break;
 
 	case 'logout':
-		require 'app/controllers/LogoutController.php';
-		$controller = new LogoutController($dbc);
+		unset($_SESSION['id']);
+		unset($_SESSION['privilege']);
+		header('Location: index.php');
 	break;
 
 	default:

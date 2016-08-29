@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="css/jquery-rating.css">
     <link rel="stylesheet" href="css/clndr.css">
     <link href="css/app.css" rel="stylesheet">
+    <link rel="icon" href="img/favicon.png">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -100,6 +101,7 @@
     <script src="src/clndr.js"></script>
     <script src="js/reviewIndividual.js"></script>
     <script src="js/salecalendar.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     
   </body>
 </html>
