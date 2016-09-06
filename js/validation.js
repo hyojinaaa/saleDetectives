@@ -6,12 +6,16 @@ $(document).ready(function() {
 	var ValidConfirmPassword = false;
 
 	// Validate Email
+
+	// $('#email').focus(function() {
+	// 	alert("test");
+	// });
 	$('#email').blur(function() {
 		$('#emailMessage').empty();
 
-
 		// Must be required
 		if( $(this).val().length === 0 ){
+
 			$('#emailMessage').removeClass("success").addClass("error").append("<p>Email address is required</p>");
 			ValidEmail = false;
 			return;

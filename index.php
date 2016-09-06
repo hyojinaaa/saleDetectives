@@ -9,7 +9,7 @@ require 'app/controllers/PageController.php';
 $page = isset($_GET['page']) ? $_GET['page'] : 'landing';
 
 // Connect to the database
-$dbc = new mysqli('localhost', 'root', '', 'saleDetectives');
+$dbc = new mysqli('localhost', 'root', '', 'saleDetectives2');
 
 // Load the appropriate file based on page
 switch($page) {

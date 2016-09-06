@@ -19,12 +19,12 @@
                 <div class="form-group">
                   <label for="email">Email Address</label>
                   <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="example@example.com" value="<?= isset($_POST['email']) ? $_POST['email'] : '' ?>">
-                  
-					<?php  if( isset($emailMessage) ) : ?>
+           
 
-                  	<small class="text-muted" id="emailMessage"><?= $emailMessage ?></small>
+                    <small class="text-muted" id="emailMessage"><?= isset($emailMessage) ? $emailMessage : '' ?></small>
+                    
                   	
-                  	<?php endif; ?>
+
                 </div>
                 <div class="form-group">
                   <label for="password">Password</label>
@@ -44,6 +44,7 @@
 
                 <div class="form-group">
                   <div class="g-recaptcha" data-sitekey="6Lcp0igTAAAAAJpBED-zcdUeiyMXNgJ9b1vihniA"></div>
+                   <small class="text-muted" id="emailMessage"><?= isset($recaptchaMessage) ? $recaptchaMessage : '' ?></small>
                 </div>
                 
             </div>
